@@ -9,35 +9,28 @@ body {
   justify-content: center;
   margin-top: 30px;
   font-family: "Montserrat", sans-serif;
-  height: 100vh;
 }
 
 .card {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
   width: 800px;
-  height: 350px;
   border-radius: 3px;
-  overflow: hidden;
   box-shadow: 1px 1px 7px 1px rgb(66, 68, 90);
 }
 .card__upper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  text-align: center;
   background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
-  height: 60%;
+  height: 200px;
   width: 100%;
 }
 .card__upper .title {
   text-transform: uppercase;
   letter-spacing: 6px;
   font-size: 50px;
+  color: white;
+  padding-top: 20px;
 }
 .card__upper .input-box {
-  margin-top: 50px;
+  margin-top: 30px;
 }
 .card__upper .input-box .task {
   font-size: 20px;
@@ -49,15 +42,28 @@ body {
   border-radius: 8px;
   padding-left: 10px;
 }
-.card__upper .input-box .add {
-  height: 100%;
+.card__upper .input-box .btn-add {
+  height: 50px;
   border: none;
   font-size: 20px;
-  padding: 10px 20px;
+  padding: 10px 25px;
   border-radius: 8px;
   cursor: pointer;
+  transition: 0.3s;
+}
+.card__upper .input-box .btn-add:hover {
+  background-color: #333;
+  color: white;
 }
 .card__bottom {
-  height: 40%;
+  min-height: 250px;
   width: 100%;
+  text-align: center;
+}
+.card__bottom .tasks-list-title {
+  text-transform: uppercase;
+  margin: 25px 0 5px 0;
+}
+.card__bottom .tasks-messange {
+  color: #09c6f9;
 }/*# sourceMappingURL=main.css.map */
