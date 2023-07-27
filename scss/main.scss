@@ -26,7 +26,7 @@ body {
 			letter-spacing: 6px;
 			font-size: 50px;
 			color: white;
-            padding-top: 20px ;
+			padding-top: 20px;
 		}
 
 		.input-box {
@@ -51,7 +51,7 @@ body {
 				transition: 0.3s;
 			}
 			.btn-add:hover {
-				background-color: #333;
+				background-color: #777676;
 				color: white;
 			}
 		}
@@ -66,6 +66,37 @@ body {
 		}
 		.tasks-messange {
 			color: #09c6f9;
+		}
+		ul {
+			margin: 15px;
+			li {
+				margin-bottom: 10px;
+				display: flex;
+				justify-content: space-between;
+				border-radius: 3px;
+				padding: 8px;
+				background-color: #f0f0f0;
+				list-style: none;
+				.tools {
+					display: inline-block;
+					button {
+						font-size: 18px;
+						border: none;
+						margin: 0 10px 0 10px;
+
+						cursor: pointer;
+					}
+					.complete {
+						color: #3acf44;
+					}
+					.edit {
+						color: #09c6f9;
+					}
+					.delete {
+						color: #ff0000;
+					}
+				}
+			}
 		}
 	}
 }

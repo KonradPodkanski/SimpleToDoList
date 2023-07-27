@@ -52,7 +52,7 @@ body {
   transition: 0.3s;
 }
 .card__upper .input-box .btn-add:hover {
-  background-color: #333;
+  background-color: #777676;
   color: white;
 }
 .card__bottom {
@@ -66,4 +66,34 @@ body {
 }
 .card__bottom .tasks-messange {
   color: #09c6f9;
+}
+.card__bottom ul {
+  margin: 15px;
+}
+.card__bottom ul li {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 3px;
+  padding: 8px;
+  background-color: #f0f0f0;
+  list-style: none;
+}
+.card__bottom ul li .tools {
+  display: inline-block;
+}
+.card__bottom ul li .tools button {
+  font-size: 18px;
+  border: none;
+  margin: 0 10px 0 10px;
+  cursor: pointer;
+}
+.card__bottom ul li .tools .complete {
+  color: #3acf44;
+}
+.card__bottom ul li .tools .edit {
+  color: #09c6f9;
+}
+.card__bottom ul li .tools .delete {
+  color: #ff0000;
 }/*# sourceMappingURL=main.css.map */
