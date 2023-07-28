@@ -31,10 +31,11 @@ body {
 	-moz-box-shadow: 1px 1px 7px 1px rgba(66, 68, 90, 1);
 	box-shadow: 1px 1px 7px 1px rgba(66, 68, 90, 1);
 	&__upper {
+		margin-bottom: 10px;
 		text-align: center;
 		background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
-		height: 150px;
 		width: 100%;
+		padding: 5px;
 		.title {
 			text-transform: uppercase;
 			letter-spacing: 6px;
@@ -44,7 +45,7 @@ body {
 		}
 
 		.input-box {
-			margin-top: 15px;
+			margin: 15px;
 			.task {
 				margin-right: 20px;
 			}
@@ -62,10 +63,14 @@ body {
 				background-color: #777676;
 				color: white;
 			}
+			.warning {
+				
+				color: red;
+				margin-top: 10px;
+			}
 		}
 	}
 	&__bottom {
-		height: 240px;
 		overflow-y: scroll;
 		text-align: center;
 		width: 100%;
@@ -157,7 +162,4 @@ body {
 			color: #ff0000;
 		}
 	}
-}
-.active {
-	display: block;
 }
