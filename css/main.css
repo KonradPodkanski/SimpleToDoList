@@ -59,7 +59,7 @@ body {
   padding: 8px 25px;
   border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: color 0.3s, background-color 0.3s;
 }
 .card__upper .input-box .btn-add:hover {
   background-color: #777676;
@@ -143,7 +143,7 @@ body {
   height: 30px;
   min-width: 160px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: color 0.3s, background-color 0.3s;
 }
 .popup__btns .btn:hover {
   background-color: #777676;
