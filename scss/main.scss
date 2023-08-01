@@ -64,7 +64,6 @@ body {
 				color: white;
 			}
 			.warning {
-				
 				color: red;
 				margin-top: 10px;
 			}
@@ -75,34 +74,40 @@ body {
 		text-align: center;
 		width: 100%;
 		padding: 10px;
+		max-height: 300px;
 		.tasks-list-title {
 			text-transform: uppercase;
 			margin: 5px 0 5px 0;
 		}
 		.tasks-messange {
-			
 			text-transform: uppercase;
 			color: #09c6f9;
 			margin-bottom: 5px;
 		}
 		ul {
 			li {
-				margin-bottom: 10px;
 				display: flex;
 				justify-content: space-between;
+				align-items: center;
 				border-radius: 3px;
-				padding: 8px;
+				padding-left: 10px;
+				height: 40px;
+				// padding: 10px;
 				background-color: #f0f0f0;
 				list-style: none;
 				.tools {
 					display: inline-block;
+
 					button {
 						font-size: 18px;
 						border: none;
 						margin: 0 10px 0 10px;
 						background: none;
-
+						padding: 10px;
 						cursor: pointer;
+						i {
+							pointer-events: none;
+						}
 					}
 					.complete {
 						color: #3acf44;
@@ -142,6 +147,7 @@ body {
 		margin-top: 15px;
 		.btn {
 			font-size: 12px;
+			padding: 10px 22px;
 			background-color: white;
 			text-transform: uppercase;
 			border: none;
@@ -162,4 +168,12 @@ body {
 			color: #ff0000;
 		}
 	}
+}
+.active {
+	display: block;
+}
+.completed {
+	text-decoration: line-through;
+	font-style: italic;
+	font-size: 12px;
 }
