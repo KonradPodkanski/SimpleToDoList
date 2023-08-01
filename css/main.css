@@ -81,7 +81,6 @@ body {
   margin: 5px 0 5px 0;
 }
 .card__bottom .tasks-messange {
-  display: none;
   text-transform: uppercase;
   color: #09c6f9;
   margin-bottom: 5px;

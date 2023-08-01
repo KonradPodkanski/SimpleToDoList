@@ -1,52 +1,71 @@
 // -----------------------upper----------------------------
-const typeTask = document.querySelector("#task");
-const addBtn = document.querySelector(".btn-add");
-const cardWarning = document.querySelector(".warning");
+let typeTask;
+let addBtn;
 // -----------------------bottom---------------------------
-const taskMsg = document.querySelector(".tasks-messange");
-const ul = document.querySelector("ul");
-const li = document.querySelectorAll("li");
-const completeBtn = document.querySelectorAll(".complete");
-const editBtn = document.querySelectorAll(".edit");
-const delBtn = document.querySelectorAll(".delete");
+let taskMsg;
+let ul;
 // ----------------------pop-up----------------------------
-const typeEditTask = document.querySelector("#edit-task");
-const popUpWarning = document.querySelector(".popup__warning");
-const subBtn = document.querySelector(".submit");
-const cancelBtn = document.querySelector(".cancel");
+let typeEditTask;
+let popUpWarning;
+let subBtn;
+let cancelBtn;
 
-const addTask = () => {
-	const newLi = document.createElement("li");
+const main = () => {
+	prepareDOMElements();
+	prepareDOMEvents();
+};
+
+const prepareDOMElements = () => {
+	// -----------------------upper----------------------------
+	typeTask = document.querySelector("#task");
+	addBtn = document.querySelector(".btn-add");
+	// -----------------------bottom---------------------------
+	taskMsg = document.querySelector(".tasks-messange");
+	ul = document.querySelector("ul");
+	// ----------------------pop-up----------------------------
+	typeEditTask = document.querySelector("#edit-task");
+	popUpWarning = document.querySelector(".popup__warning");
+	subBtn = document.querySelector(".submit");
+	cancelBtn = document.querySelector(".cancel");
+};
+const prepareDOMEvents = () => {
+	addBtn.addEventListener("click", addTask);
+	addBtn.addEventListener("click", createTools);
+};
+const createTools = () => {
 	const newDiv = document.createElement("div");
-	const buttonOne = document.createElement("button");
-	const buttonTwo = document.createElement("button");
-	const buttonThree = document.createElement("button");
-	const iCheck = document.createElement("i");
-	const iDel = document.createElement("i");
 	newDiv.classList.add("tools");
+
+	const buttonOne = document.createElement("button");
 	buttonOne.classList.add("complete");
+	// const iCheck = document.createElement("i");
+	// iCheck.classList.add("fa-regular", "fa-circle-check");
+
+	// instead of upper example of creating <i> included classes, I use innerHtml to create whole element
+	buttonOne.innerHTML = '<i class="fa-regular fa-circle-check"></i>';
+
+	const buttonTwo = document.createElement("button");
 	buttonTwo.classList.add("edit");
-	buttonThree.classList.add("delete");
-	iCheck.classList.add("fa-regular", "fa-circle-check");
-	iDel.classList.add("fa-solid", "fa-xmark");
 	buttonTwo.textContent = "EDIT";
 
-	buttonOne.appendChild(iCheck);
-	buttonThree.appendChild(iDel);
+	const buttonThree = document.createElement("button");
+	buttonThree.classList.add("delete");
+	buttonThree.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+
 	newDiv.append(buttonOne, buttonTwo, buttonThree);
-	newLi.textContent = typeTask.value;
-	newLi.appendChild(newDiv);
-	ul.appendChild(newLi);
-	typeTask.value = "";
 };
 
-const checkTask = () => {
-	if (typeTask.value == 0) {
-		cardWarning.textContent = "you have to enter the content!";
+const addTask = () => {
+	if (typeTask.value !== "") {
+		const newLi = document.createElement("li");
+		newLi.textContent = typeTask.value;
+		ul.appendChild(newLi);
+		typeTask.value = "";
+		taskMsg.textContent = "";
+		console.log("jest ok");
 	} else {
-		cardWarning.textContent = "";
-		addTask();
+		taskMsg.textContent = "Type content of task!";
 	}
 };
-addBtn.addEventListener("click", checkTask);
-console.log(typeTask);
+
+document.addEventListener("DOMContentLoaded", main);
