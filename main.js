@@ -10,6 +10,7 @@ let typeEditTask;
 let popUpWarning;
 let subBtn;
 let cancelBtn;
+let toDoEdit;
 
 const main = () => {
 	prepareDOMElements();
@@ -82,17 +83,31 @@ const toolsPanelAction = e => {
 	}
 };
 const editTask = e => {
+	toDoEdit = e.target.closest("li");
 	PopUp.classList.toggle("active");
-	typeEditTask.value = e.target.closest("li").textContent.replace("EDIT", "");
+	typeEditTask.value = toDoEdit.textContent.replace("EDIT", "");
 };
 const completedTask = e => {
 	e.target.closest("li").classList.toggle("completed");
 };
 const deleteTask = e => {
 	e.target.closest("li").remove();
+
+	const tasks = document.querySelectorAll("li");
+	if (tasks.length === 0) {
+		taskMsg.textContent = "Task list is empty";
+	} else {
+		taskMsg.textContent = "";
+	}
 };
 const changeTask = () => {
-	
+	if (typeEditTask.value !== "") {
+		toDoEdit.firstChild.textContent = typeEditTask.value;
+		popUpWarning.textContent = "";
+		closePopup();
+	} else {
+		popUpWarning.textContent = "Type content!";
+	}
 };
 const closePopup = () => {
 	PopUp.classList.remove("active");
