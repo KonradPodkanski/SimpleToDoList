@@ -33,7 +33,6 @@ body {
   box-shadow: 1px 1px 7px 1px rgb(66, 68, 90);
 }
 .card__upper {
-  margin-bottom: 10px;
   text-align: center;
   background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
   width: 100%;
