@@ -23,7 +23,7 @@ const prepareDOMElements = () => {
 	taskMsg = document.querySelector(".tasks-messange");
 	ul = document.querySelector("ul");
 	// ----------------------pop-up----------------------------
-	showPopUp = document.querySelector(".popup");
+	PopUp = document.querySelector(".popup");
 	typeEditTask = document.querySelector("#edit-task");
 	popUpWarning = document.querySelector(".popup__warning");
 	subBtn = document.querySelector(".submit");
@@ -32,6 +32,8 @@ const prepareDOMElements = () => {
 const prepareDOMEvents = () => {
 	addBtn.addEventListener("click", addTask);
 	ul.addEventListener("click", toolsPanelAction);
+	subBtn.addEventListener("click", changeTask);
+	cancelBtn.addEventListener("click", closePopup);
 };
 const createTools = newTodo => {
 	const newDiv = document.createElement("div");
@@ -64,7 +66,6 @@ const addTask = () => {
 		createTools(newTask);
 		typeTask.value = "";
 		taskMsg.textContent = "";
-		console.log(newTask);
 	} else {
 		taskMsg.textContent = "Type content of task!";
 	}
@@ -81,16 +82,20 @@ const toolsPanelAction = e => {
 	}
 };
 const editTask = e => {
-	showPopUp.classList.toggle("active");
-	console.log(e.target.closest("li").textContent);
+	PopUp.classList.toggle("active");
 	typeEditTask.value = e.target.closest("li").textContent.replace("EDIT", "");
 };
 const completedTask = e => {
 	e.target.closest("li").classList.toggle("completed");
-	console.log(e.target);
 };
 const deleteTask = e => {
 	e.target.closest("li").remove();
+};
+const changeTask = () => {
+	
+};
+const closePopup = () => {
+	PopUp.classList.remove("active");
 };
 
 document.addEventListener("DOMContentLoaded", main);
