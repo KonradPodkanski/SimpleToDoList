@@ -35,6 +35,8 @@ const prepareDOMEvents = () => {
 	ul.addEventListener("click", toolsPanelAction);
 	subBtn.addEventListener("click", changeTask);
 	cancelBtn.addEventListener("click", closePopup);
+	typeTask.addEventListener("keyup", enterKeyCheck);
+	typeEditTask.addEventListener("keyup", enterKeyCheck);
 };
 const createTools = newTodo => {
 	const newDiv = document.createElement("div");
@@ -111,6 +113,19 @@ const changeTask = () => {
 };
 const closePopup = () => {
 	PopUp.classList.remove("active");
+};
+const enterKeyCheck = e => {
+	if (
+		e.key === "Enter" &&
+		e.target.closest("input").classList.value === "task"
+	) {
+		addTask();
+	} else if (
+		e.key === "Enter" &&
+		e.target.closest("input").classList.value === "popup__edit-task"
+	) {
+		changeTask()
+	}
 };
 
 document.addEventListener("DOMContentLoaded", main);
