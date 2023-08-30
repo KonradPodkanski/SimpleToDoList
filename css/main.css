@@ -65,6 +65,10 @@ body {
   background-color: #777676;
   color: white;
 }
+.card__upper .input-box .action {
+  background-color: #777676;
+  color: white;
+}
 .card__upper .input-box .warning {
   color: red;
   margin-top: 10px;

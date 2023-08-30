@@ -1,9 +1,12 @@
 // -----------------------upper----------------------------
 let typeTask;
 let addBtn;
+let sortBtn;
+let isActive;
 // -----------------------bottom---------------------------
 let taskMsg;
-let ul;
+let li;
+const ul = document.querySelector("ul");
 // ----------------------pop-up----------------------------
 let showPopUp;
 let typeEditTask;
@@ -20,9 +23,10 @@ const prepareDOMElements = () => {
 	// -----------------------upper----------------------------
 	typeTask = document.querySelector("#task");
 	addBtn = document.querySelector(".btn-add");
+	sortBtn = document.querySelector(".btn-sort");
+	isActive = true;
 	// -----------------------bottom---------------------------
 	taskMsg = document.querySelector(".tasks-messange");
-	ul = document.querySelector("ul");
 	// ----------------------pop-up----------------------------
 	PopUp = document.querySelector(".popup");
 	typeEditTask = document.querySelector("#edit-task");
@@ -30,8 +34,10 @@ const prepareDOMElements = () => {
 	subBtn = document.querySelector(".submit");
 	cancelBtn = document.querySelector(".cancel");
 };
+
 const prepareDOMEvents = () => {
 	addBtn.addEventListener("click", addTask);
+	sortBtn.addEventListener("click", toggleSort);
 	ul.addEventListener("click", toolsPanelAction);
 	subBtn.addEventListener("click", changeTask);
 	cancelBtn.addEventListener("click", closePopup);
@@ -73,6 +79,7 @@ const addTask = () => {
 		taskMsg.textContent = "Type content of task!";
 	}
 };
+
 const toolsPanelAction = e => {
 	if (e.target.matches(".complete")) {
 		completedTask(e);
@@ -124,7 +131,29 @@ const enterKeyCheck = e => {
 		e.key === "Enter" &&
 		e.target.closest("input").classList.value === "popup__edit-task"
 	) {
-		changeTask()
+		changeTask();
+	}
+};
+let sortable = new Sortable(ul, {
+	animation: 200,
+	group: {
+		name: "shared",
+		pull: "clone",
+		revertClone: true,
+	},
+	sort: false,
+});
+const toggleSort = () => {
+	if (isActive === true) {
+		console.log("wykonuje sie sort");
+		sortBtn.classList.add("action");
+		sortable.options.sort = true;
+		isActive = false;
+	} else if (isActive === false) {
+		console.log("przerwanie sort");
+		sortBtn.classList.remove("action");
+		sortable.options.sort = false;
+		isActive = true;
 	}
 };
 
